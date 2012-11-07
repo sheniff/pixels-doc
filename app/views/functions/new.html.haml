@@ -2,7 +2,7 @@
 = form_for @function, html: { id: "function_form" } do |f|
   = render 'shared/function_error_messages'
   = f.text_field :name, placeholder: "Function name...", class: "column6"
-  = f.collection_select :category_id, Category.order("name"), :id, :name, {include_blank: 'Category...'}, {class: 'column6'}
+  = f.collection_select :category_id, Category.order("name"), :id, :name, {}, {class: 'column6'}
   = f.text_field :description, placeholder: "Enter a short description here...", class: "column12"
   = f.text_area :content, class: "column12"
   = f.submit "Post", class: "btn block action"
