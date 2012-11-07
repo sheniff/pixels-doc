@@ -1,7 +1,7 @@
 class DocumentationController < ApplicationController
   def home
-    @categories = Category.all
-    @functions = Function.all
+    @categories = Category.order("name")
+    @functions = Function.order("name")
 
     @new_category = Category.new
   end
