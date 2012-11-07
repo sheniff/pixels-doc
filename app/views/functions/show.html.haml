@@ -5,10 +5,11 @@
       = link_to "Edit", edit_function_path(@function)
 
 %p
-  %strong
-    Category:
-  = link_to @function.category.name, @function.category
-  %br
+  - if @function.category
+    %strong
+      Category:
+    = link_to @function.category.name, @function.category
+    %br
   %strong
     Description:
   #{@function.description}
