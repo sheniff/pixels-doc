@@ -2,8 +2,7 @@
   .headerwrap.navbar-wrap
     .wrap.wrapper.pt5.flush
       #left_header.left
-        .tapjoy
-          %img{src: BLANK_IMAGE}
+        = link_to "PixelsDoc", root_url, class: "mt5", style: "font-size: 25px; color: #FFF; display: inline-block;"
       #right_header.right
         - if user_signed_in?
           =link_to '/admin' do
