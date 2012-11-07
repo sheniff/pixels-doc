@@ -11,6 +11,7 @@ gem 'haml'
 gem 'devise'
 gem 'rails_admin'
 gem 'pixels-rails', git: 'https://heroku-tapjoy:posed1roves@github.com/Tapjoy/pixels-rails.git'
+
 gem 'annotate', '2.5.0', group: :development
 
 group :development, :test do
