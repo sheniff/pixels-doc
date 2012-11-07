@@ -2,6 +2,8 @@ class FunctionsController < ApplicationController
   def show
     @categories = Category.order("name")
     @functions = Function.order("name")
+    @new_category = Category.new
+    @new_category = Category.new
 
     @function = Function.find(params[:id])
   end
@@ -9,6 +11,7 @@ class FunctionsController < ApplicationController
   def edit
     @categories = Category.order("name")
     @functions = Function.order("name")
+    @new_category = Category.new
 
     @function = Function.find(params[:id])
   end
@@ -16,6 +19,7 @@ class FunctionsController < ApplicationController
   def new
     @categories = Category.order("name")
     @functions = Function.order("name")
+    @new_category = Category.new
 
     @function = Function.new
   end
@@ -23,10 +27,11 @@ class FunctionsController < ApplicationController
   def create
     @categories = Category.order("name")
     @functions = Function.order("name")
+    @new_category = Category.new
 
     @function = Function.new(params[:function])
     if @function.save
-      flash[:success] = "New function created: #{@function.name}"
+      flash.now[:success] = "New function created: #{@function.name}"
       redirect_to @function
     else
       render 'new'
@@ -36,10 +41,11 @@ class FunctionsController < ApplicationController
   def update
     @categories = Category.order("name")
     @functions = Function.order("name")
+    @new_category = Category.new
 
     @function = Function.find(params[:id])
     if @function.update_attributes(params[:function])
-      flash[:success] = "#{@function.name} updated!"
+      flash.now[:success] = "#{@function.name} updated!"
       redirect_to @function
     else
       render 'edit'
