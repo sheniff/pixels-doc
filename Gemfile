@@ -4,12 +4,14 @@ gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.0.4'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
 gem 'jquery-rails', '2.0.2'
 gem 'haml'
 gem 'devise'
 gem 'rails_admin'
+gem 'pixels-rails', git: 'https://heroku-tapjoy:posed1roves@github.com/Tapjoy/pixels-rails.git'
+gem 'annotate', '2.5.0', group: :development
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

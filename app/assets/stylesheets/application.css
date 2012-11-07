@@ -10,4 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *
+ * Add pixels as CSS foundation
+ *= require pixels
+ *
  */
