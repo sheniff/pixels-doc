@@ -1,5 +1,5 @@
 %h1= "New Function"
-= form_for @new_function, html: { id: "new_function_form" } do |f|
+= form_for @function, html: { id: "function_form" } do |f|
   = render 'shared/function_error_messages'
   = f.text_field :name, placeholder: "Function name...", class: "column6"
   = f.collection_select :category_id, Category.order("name"), :id, :name, {include_blank: 'Category...'}, {class: 'column6'}
