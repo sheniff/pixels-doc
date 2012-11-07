@@ -13,9 +13,9 @@
       = render "shared/nav_bar"
 
     .wrapper.mt50
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "alert alert-#{key}")
       .container-fluid
-        - flash.each do |key, value|
-          = content_tag(:div, value, class: "alert alert-#{key}")
         - if @categories and @functions
           .column3
             = render "shared/side_bar"
