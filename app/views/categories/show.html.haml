@@ -1,0 +1,5 @@
+%h1= @category.name
+%ul
+  - @category.functions.each do |f|
+    %li
+      = link_to f.name, f

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106232355) do
+ActiveRecord::Schema.define(:version => 20121107010120) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(:version => 20121106232355) do
     t.string   "name"
     t.integer  "category_id"
     t.string   "description"
-    t.string   "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "content",     :limit => 255
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "functions", ["category_id"], :name => "index_functions_on_category_id_and_subcategory_id"

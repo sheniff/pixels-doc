@@ -1,0 +1,16 @@
+%h1
+  #{@function.name}
+  - if user_signed_in?
+    %small
+      = link_to "Edit", edit_function_path(@function)
+
+%p
+  %strong
+    Category:
+  = link_to @function.category.name, @function.category
+  %br
+  %strong
+    Description:
+  #{@function.description}
+.info{style: "white-space: pre-wrap"}
+  #{@function.content}

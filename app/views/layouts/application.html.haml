@@ -12,4 +12,10 @@
     - unless @hide_nav_bar
       = render "shared/nav_bar"
 
-    = yield
+    .wrapper.mt50
+      .container-fluid
+        - if @categories and @functions
+          .column3
+            = render "shared/side_bar"
+        .column9
+          = yield

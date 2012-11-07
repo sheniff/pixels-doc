@@ -3,8 +3,8 @@ PixelsDoc::Application.routes.draw do
 
   devise_for :users
 
-  resources :categories
-  resources :functions
+  resources :categories, only: [:show, :edit]
+  resources :functions, only: [:show, :edit]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
