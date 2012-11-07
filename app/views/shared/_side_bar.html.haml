@@ -1,8 +1,25 @@
-%h2= "Categories"
+%h2
+  Categories
+  - if user_signed_in?
+    %small
+      %a#show_new{href: '#'}= "New"
+- if user_signed_in? and @new_category
+  = form_for @new_category, html: { id: "new_category_form", class: "hide" } do |f|
+    = f.text_field :name, placeholder: "New Category...", class: "block"
+    = f.submit "Post", class: "btn block action"
 - @categories.each do |cat|
   .block
     = link_to cat.name, cat
-%h2= "Functions"
+%h2
+  Functions
+  - if user_signed_in?
+    %small
+      = link_to "New", new_function_path
 - @functions.each do |f|
   .block
     = link_to f.name, f
+
+:javascript
+  $('#show_new').click(function(){
+    $('#new_category_form').fadeIn();
+  });

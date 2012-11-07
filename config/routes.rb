@@ -1,10 +1,10 @@
 PixelsDoc::Application.routes.draw do
-  match '/', to: 'documentation#home'
+  root to: 'documentation#home'
 
   devise_for :users
 
-  resources :categories, only: [:show, :edit]
-  resources :functions, only: [:show, :edit]
+  resources :categories, only: [:show, :edit, :create]
+  resources :functions, only: [:show, :edit, :create, :new]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

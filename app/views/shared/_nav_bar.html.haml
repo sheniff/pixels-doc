@@ -2,6 +2,12 @@
   .headerwrap.navbar-wrap
     .wrap.wrapper.pt5.flush
       #left_header.left
-      .tapjoy
-        %img{src: BLANK_IMAGE}
+        .tapjoy
+          %img{src: BLANK_IMAGE}
       #right_header.right
+        - if user_signed_in?
+          =link_to '/admin' do
+            %span{style: "color: white;"}= current_user.email
+            = gravatar_for current_user, size: 30
+        - else
+          = link_to "Sign In", user_session_path, class: "btn small"

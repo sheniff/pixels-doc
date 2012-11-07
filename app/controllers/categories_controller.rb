@@ -10,4 +10,14 @@ class CategoriesController < ApplicationController
 
     @category = Category.find(params[:id])
   end
+
+  def create
+    @cat = Category.new(params[:category])
+    if @cat.save
+      redirect_to root_url
+    else
+      #add flash alert
+      redirect_to root_url
+    end
+  end
 end
