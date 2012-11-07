@@ -1,0 +1,8 @@
+- if @new_function.errors.any?
+  #error_explanation
+  .alert.alert-error
+    The form contains #{pluralize(@new_function.errors.count, "error")}.
+  %ul
+    - @new_function.errors.full_messages.each do |msg|
+      %li
+        * #{msg}
