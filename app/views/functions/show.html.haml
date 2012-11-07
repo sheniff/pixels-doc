@@ -12,5 +12,6 @@
   %strong
     Description:
   #{@function.description}
-.info{style: "white-space: pre-wrap"}
-  #{@function.content}
+%hr
+.info
+  = markdown @function.content

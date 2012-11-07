@@ -3,7 +3,6 @@ class FunctionsController < ApplicationController
     @categories = Category.order("name")
     @functions = Function.order("name")
     @new_category = Category.new
-    @new_category = Category.new
 
     @function = Function.find(params[:id])
   end

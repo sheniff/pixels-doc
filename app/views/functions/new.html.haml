@@ -4,5 +4,10 @@
   = f.text_field :name, placeholder: "Function name...", class: "column6"
   = f.collection_select :category_id, Category.order("name"), :id, :name, {}, {class: 'column6'}
   = f.text_field :description, placeholder: "Enter a short description here...", class: "column12"
-  = f.text_area :content, class: "column12"
+  = f.label :content
+  #epiceditor.mb20{style: "height: 400px"}
+  .hide
+    = f.text_area :content, class: "column12"
   = f.submit "Post", class: "btn block action"
+
+- javascript_include_tag "tj_epiceditor"
