@@ -1,7 +1,6 @@
-class DocumentationController < ApplicationController
+class DocumentationController < CommonController
+  before_filter :sidebar_data
+
   def home
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
   end
 end

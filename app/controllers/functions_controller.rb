@@ -1,33 +1,20 @@
-class FunctionsController < ApplicationController
-  def show
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
+class FunctionsController < CommonController
+  before_filter :signed_in_user, only: [:edit, :new, :create, :update]
+  before_filter :sidebar_data, except: [:create]
 
+  def show
     @function = Function.find(params[:id])
   end
 
   def edit
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
-
     @function = Function.find(params[:id])
   end
 
   def new
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
-
     @function = Function.new
   end
 
   def create
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
-
     @function = Function.new(params[:function])
     if @function.save
       flash.now[:success] = "New function created: #{@function.name}"
@@ -38,10 +25,6 @@ class FunctionsController < ApplicationController
   end
 
   def update
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-    @new_category = Category.new
-
     @function = Function.find(params[:id])
     if @function.update_attributes(params[:function])
       flash.now[:success] = "#{@function.name} updated!"

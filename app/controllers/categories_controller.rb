@@ -1,13 +1,11 @@
-class CategoriesController < ApplicationController
+class CategoriesController < CommonController
+  before_filter :signed_in_user, only: [:create]
+  before_filter :sidebar_data, except: [:create]
+
   def index
-    @categories = Category.order("name")
-    @functions = Function.order("name")
   end
 
   def show
-    @categories = Category.order("name")
-    @functions = Function.order("name")
-
     @category = Category.find(params[:id])
   end
 
@@ -16,7 +14,7 @@ class CategoriesController < ApplicationController
     if @cat.save
       redirect_to root_url
     else
-      #add flash alert
+      flash.now[:error] = "Category invalid. Please try again."
       redirect_to root_url
     end
   end
