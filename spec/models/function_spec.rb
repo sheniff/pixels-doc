@@ -15,9 +15,16 @@ require 'spec_helper'
 
 describe Function do
 
+  let(:category) { FactoryGirl.create(:category) }
+  before { @function = category.functions.build(name: "Test Function", description: "Short Description", content: "Lipsum long description that I'm not going to write right now...") }
+
   subject { @function }
 
   it { should respond_to(:name) }
+  it { should respond_to(:description) }
+  it { should respond_to(:content) }
   it { should respond_to(:category_id) }
+
+  it { should be_valid }
 
 end
